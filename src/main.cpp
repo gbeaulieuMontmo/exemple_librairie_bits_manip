@@ -15,9 +15,14 @@
 // le fichier bits_manip.cpp doit être dans le répertoire src
 #include "bits_manip.h" 
 
+#define DEL PB7 // Pin de la LED (PORTB pin 7, pin numérique 13 sur l'Arduino)
+
 void setup() {
   Serial.begin(9600);
   delay(500); // Attendre que le port série soit prêt
+  DDRB |= (1 << DEL); // Configurer la pin de la LED comme sortie
+  // Autre façon de configurer la pin de la LED comme sortie
+  //DDRB = setBit(DDRB, DEL); 
 }
 
 void loop() {
@@ -73,5 +78,11 @@ void loop() {
   bool res_isBitSet = isBitSet(octet, pos);
   Serial.print("isBitSet: ");
   Serial.println(res_isBitSet);
-  while(1); 
+  while(1)
+  {
+    // On fait clignoter la LED intégrée pour indiquer que le programme est terminé
+    PORTB ^= (1 << DEL); // Inverser l'état de la LED
+    //PORTB = flipBit(PORTB, DEL); // Autre façon d'inverser l'état de la LED
+    delay(1000);                     
+  }
 }

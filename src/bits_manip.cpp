@@ -20,7 +20,7 @@ int setBit(int octet, unsigned char position)
 
 //**********************************************************
 // setBitM permet de mettre à 1 les bits contenu dans mask.
-// Param�tres: octet = entier pour lequel on veut mettre un 
+// Paramètres: octet = entier pour lequel on veut mettre un 
 //                     bit à 1.
 //             mask = le masque à utiliser.
 // Retour: retourne l'entier avec les bits changés.
@@ -41,7 +41,8 @@ int setBitM(int octet, int mask)
 int clearBit(int octet, unsigned char position)
 {
 	int mask = 1 << position; //Création du masque
-	return octet & ~mask;
+	//On inverse le masque avec ~ donc 0001 devient 1110 par exemple
+	return octet & ~mask; 
 }
 
 //**********************************************************
@@ -51,6 +52,7 @@ int clearBit(int octet, unsigned char position)
 //                     bit à 1.
 //             mask = le masque à utiliser.
 // Retour: retourne l'entier avec les bits changés.
+//**********************************************************
 int clearBitM(int octet, int mask)
 {
 	return octet & ~mask;
@@ -62,6 +64,7 @@ int clearBitM(int octet, int mask)
 // Paramètres: octet = entier pour lequel on veut mettre tous
 //                     les bits à 0.
 // Retour: retourne l'entier avec les bits changés.
+//**********************************************************
 int clearAllBit(int octet)
 {
 	int mask = 0xff;
@@ -76,6 +79,7 @@ int clearAllBit(int octet)
 //             position = la position du bit à changer.
 //			   newState = nouvel état du bit soit 1 ou 0
 // Retour: retourne l'entier avec le bit changé.
+//**********************************************************
 int modifyBit(int octet, unsigned char position, bool newState)
 {
 	int mask = 1 << position; //Création du masque
@@ -90,6 +94,7 @@ int modifyBit(int octet, unsigned char position, bool newState)
 //                     bit à 1.
 //             position = la position du bit à inverser.
 // Retour: retourne l'entier avec le bit changé.
+//**********************************************************
 int flipBit(int octet, unsigned char position)
 {
 	int mask = 1 << position; //Création du masque
@@ -103,6 +108,7 @@ int flipBit(int octet, unsigned char position)
 //                     bit à 1.
 //             position = la position du bit à changer.
 // Retour: Retourne 1 si le bit est à 1 ou 0 s'il est à zéro.
+//**********************************************************
 bool isBitSet(int octet, unsigned char position)
 {
 	octet >>= position; //On isole le bits voulu.
