@@ -1,3 +1,7 @@
+// Exemple d'utilisation de la librairie bits_manip dans le cadre du cours
+// de programmation "243-33A-MO Microcontrôleur 2"
+// Auteur: Guillaume Beaulieu
+// Date: 2024-06-03
 // Pour obtenir cet exemple de code, voir le dépôt GitHub suivant :
 // https://github.com/gbeaulieuMontmo/exemple_librairie_bits_manip.git
 
@@ -17,13 +21,17 @@ void setup() {
 }
 
 void loop() {
+  // Ici changer les valeurs pour tester les fonctions
   int octet = 0b00001111; // Exemple de valeur de départ
-  unsigned char pos = 2;
-  int mask = 0b11110000;
+  unsigned char pos = 2; // Position du bit à manipuler (0 à 7)
+  int mask = 0b11110000; // Masque pour les opérations sur plusieurs bits
 
   // setBit
   int res_setBit = setBit(octet, pos);
   Serial.print("setBit: ");
+
+  // Rappel : le deuxième argument (facultatif) de Serial.println 
+  // peut être BIN, DEC, HEX ou OCT
   Serial.println(res_setBit, BIN);
 
   // setBitM
