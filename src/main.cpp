@@ -1,3 +1,6 @@
+// Pour obtenir cet exemple de code, voir le dépôt GitHub suivant :
+// https://github.com/gbeaulieuMontmo/exemple_librairie_bits_manip.git
+
 // Inclure le fichier d'en-tête Arduino pour utiliser les fonctions Arduino
 // ici les <> indiquent que le fichier est dans un répertoire standard
 #include <Arduino.h>
